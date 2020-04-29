@@ -13,7 +13,7 @@
     </head>
     <body>
          <%for(int i=0; i<999; i++){%>
-        <div style="float:left; background-color:#<%=Integer.toHexString(i)%>"> - <%=i%> - </div>
+        <div style="float:left; background-color:#<%=Integer.toHexString(i)%>;"> - <%=i%> - </div>
         <%}%>
     </body>
 </html>

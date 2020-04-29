@@ -42,8 +42,8 @@ public class ForTestServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             //out.println("<h1>Servlet ForTestServlet at " + request.getContextPath() + "</h1>");
-            for (int i = 0; i < 100; i++) {
-              out.println("<div>"+i+"</div>");  
+            for (int i = 0; i < 1000; i++) {
+              out.println("<div style='float:left; background-color:#"+Integer.toHexString(i)+"'> --"+i+"-- </div>");  
             }
             out.println("</body>");
             out.println("</html>");
