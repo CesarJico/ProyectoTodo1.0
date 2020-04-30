@@ -8,6 +8,7 @@ package mx.com.develop.web.proyectotodoweb1;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,7 +63,14 @@ public class ForTestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        request.setAttribute("saludo", "Mi primer suma con servlet y jsp. :D");
+        request.setAttribute("a","10");
+        request.setAttribute("b", "20");
+        request.setAttribute("opc","+");
+        
+        RequestDispatcher rd = request.getRequestDispatcher("/ForTestJsp.jsp");
+        rd.forward(request, response);
     }
 
     /**
@@ -77,6 +85,7 @@ public class ForTestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
     }
 
     /**

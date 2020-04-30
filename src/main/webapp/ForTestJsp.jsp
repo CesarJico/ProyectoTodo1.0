@@ -9,11 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Calculadora</title>
     </head>
     <body>
-         <%for(int i=0; i<999; i++){%>
-        <div style="float:left; background-color:#<%=Integer.toHexString(i)%>;"> - <%=i%> - </div>
+        <h1>${saludo}</h1>
+         <%//for(int i=0; i<999; i++){%>
+        <!-- <div style="float:left; background-color:#<%//=Integer.toHexString(i)%>;"> - <%//=i%> - </div>-->
+        <%//}%>
+        
+        <%if(request.getAttribute("opc").equals("+")){%>
+            <h1>La suma de ${a}+${b} es ${a+b}</h1>
         <%}%>
     </body>
 </html>
