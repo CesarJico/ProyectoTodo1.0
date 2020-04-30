@@ -23,28 +23,42 @@ public class CalculadoraServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //variables 
-       int a = 10;
-       int b = 50;
-       
-        
+        //variables  ?a=10&b=45&opc=suma
+       //int a = 10;
+       Integer a = Integer.parseInt(request.getParameter("a"));
+       //int b = 50;
+       Integer b = Integer.parseInt(request.getParameter("b"));
         request.setAttribute("a",a);
-        request.setAttribute("b", b);
-        char opc = '+';
-       switch(opc){
-           case '+':
-                request.setAttribute("mensaje", "Opreación suma");
-                request.setAttribute("opc","+");   
-                RequestDispatcher rdSuma = request.getRequestDispatcher("/suma.jsp");
-                rdSuma.forward(request, response);
-                break;
-           case '-':
-                request.setAttribute("mensaje", "Opreación resta");
-                request.setAttribute("opc","-");   
-                RequestDispatcher rdResta = request.getRequestDispatcher("/resta.jsp");
-                rdResta.forward(request, response);
-                break;
-       }
+        request.setAttribute("b",b);
+        //String opc = "+";
+        String opc = request.getParameter("opc");//opción suma
+        //System.out.println(opc);
+        switch(opc){
+            case "suma":
+                 request.setAttribute("mensaje", "Opreación suma");
+                 request.setAttribute("opc","+");   
+                 RequestDispatcher rdSuma = request.getRequestDispatcher("/suma.jsp");
+                 rdSuma.forward(request, response);
+                 break;
+            case "resta":
+                 request.setAttribute("mensaje", "Opreación resta");
+                 request.setAttribute("opc","-");   
+                 RequestDispatcher rdResta = request.getRequestDispatcher("/resta.jsp");
+                 rdResta.forward(request, response);
+                 break;
+            case "multiplicacion":
+                 request.setAttribute("mensaje", "Opreación multiplicación");
+                 request.setAttribute("opc","*");   
+                 RequestDispatcher rdMultiplicacion = request.getRequestDispatcher("/multiplicacion.jsp");
+                 rdMultiplicacion.forward(request, response);
+                 break;
+            case "division":
+                 request.setAttribute("mensaje", "Opreación división");
+                 request.setAttribute("opc","/");   
+                 RequestDispatcher rdDivision = request.getRequestDispatcher("/division.jsp");
+                 rdDivision.forward(request, response);
+                 break;
+        }
     }
     
 }

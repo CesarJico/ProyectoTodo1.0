@@ -61,31 +61,31 @@ public class OpreacionesAritmeticas extends HttpServlet {
             throws ServletException, IOException {
        // processRequest(request, response);
        
-       //variables 
-       int a = 10;
-       int b = 50;
+         //variables 
+      // int a = 10;
+      Integer a = Integer.parseInt(request.getParameter("a"));
+      Integer b = Integer.parseInt(request.getParameter("b"));
+      String opc = request.getParameter("opc");//opción suma 
+      // int b = 50;
        
         
-       request.setAttribute("a",a);
-       request.setAttribute("b", b);
-       
-       //request.setAttribute("opc","-"); 
-        
-       char opc = '-';
-       switch(opc){
-           case '+':
-                request.setAttribute("mensaje", "Opreación suma");
-                request.setAttribute("opc","+");   
-                RequestDispatcher rd = request.getRequestDispatcher("/suma.jsp");
-                rd.forward(request, response);
-                break;
-           case '-':
-                request.setAttribute("mensaje", "Opreación resta");
-                request.setAttribute("opc","-");   
-                RequestDispatcher rd2 = request.getRequestDispatcher("/resta.jsp");
-                rd2.forward(request, response);
-                break;
-       }
+        request.setAttribute("a",a);
+        request.setAttribute("b", b);
+        //char opc = '+';
+        switch(opc){
+            case "+":
+                 request.setAttribute("mensaje", "Opreación suma");
+                 request.setAttribute("opc","+");   
+                 RequestDispatcher rdSuma = request.getRequestDispatcher("/suma.jsp");
+                 rdSuma.forward(request, response);
+                 break;
+            case "-":
+                 request.setAttribute("mensaje", "Opreación resta");
+                 request.setAttribute("opc","-");   
+                 RequestDispatcher rdResta = request.getRequestDispatcher("/resta.jsp");
+                 rdResta.forward(request, response);
+                 break;
+        }
         
     }
 
