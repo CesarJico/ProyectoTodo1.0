@@ -7,7 +7,6 @@ package mx.com.develop.web.proyectotodoweb1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jcesar
  */
-@WebServlet(name = "ForTestServlet", urlPatterns = {"/forTest.do"})
-public class ForTestServlet extends HttpServlet {
+@WebServlet(name = "OpreacionesAritmeticas", urlPatterns = {"/OpreacionesAritmeticas"})
+public class OpreacionesAritmeticas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,13 +38,10 @@ public class ForTestServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ForTestServlet</title>");            
+            out.println("<title>Servlet OpreacionesAritmeticas</title>");            
             out.println("</head>");
             out.println("<body>");
-            //out.println("<h1>Servlet ForTestServlet at " + request.getContextPath() + "</h1>");
-            for (int i = 0; i < 1000; i++) {
-              out.println("<div style='float:left; background-color:#"+Integer.toHexString(i)+"'> --"+i+"-- </div>");  
-            }
+            out.println("<h1>Servlet OpreacionesAritmeticas at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,13 +59,34 @@ public class ForTestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        request.setAttribute("mensaje", "Opreación suma");
-        request.setAttribute("a","10");
-        request.setAttribute("b", "20");
-        request.setAttribute("opc","+");
-        RequestDispatcher rd = request.getRequestDispatcher("/suma.jsp");
-        rd.forward(request, response);
+       // processRequest(request, response);
+       
+       //variables 
+       int a = 10;
+       int b = 50;
+       
+        
+       request.setAttribute("a",a);
+       request.setAttribute("b", b);
+       
+       //request.setAttribute("opc","-"); 
+        
+       char opc = '-';
+       switch(opc){
+           case '+':
+                request.setAttribute("mensaje", "Opreación suma");
+                request.setAttribute("opc","+");   
+                RequestDispatcher rd = request.getRequestDispatcher("/suma.jsp");
+                rd.forward(request, response);
+                break;
+           case '-':
+                request.setAttribute("mensaje", "Opreación resta");
+                request.setAttribute("opc","-");   
+                RequestDispatcher rd2 = request.getRequestDispatcher("/resta.jsp");
+                rd2.forward(request, response);
+                break;
+       }
+        
     }
 
     /**
@@ -84,7 +101,6 @@ public class ForTestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /**

@@ -12,13 +12,8 @@
         <title>Calculadora</title>
     </head>
     <body>
-        <h1>${saludo}</h1>
-         <%//for(int i=0; i<999; i++){%>
-        <!-- <div style="float:left; background-color:#<%//=Integer.toHexString(i)%>;"> - <%//=i%> - </div>-->
-        <%//}%>
-        
-        <%if(request.getAttribute("opc").equals("+")){%>
-            <h1>La suma de ${a}+${b} es ${a+b}</h1>
+         <%for(int i=0; i<999; i++){%>
+         <div style="float:left; background-color:#<%=Integer.toHexString(i)%>;"> - <%=i%> - </div>
         <%}%>
     </body>
 </html>
