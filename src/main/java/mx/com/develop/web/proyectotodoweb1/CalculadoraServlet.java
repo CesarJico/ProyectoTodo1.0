@@ -23,16 +23,13 @@ public class CalculadoraServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //variables  ?a=10&b=45&opc=suma
-       //int a = 10;
-       Integer a = Integer.parseInt(request.getParameter("a"));
-       //int b = 50;
-       Integer b = Integer.parseInt(request.getParameter("b"));
+        Integer a = Integer.parseInt(request.getParameter("a"));
+        Integer b = Integer.parseInt(request.getParameter("b"));
+        String opc = request.getParameter("opc");//opción suma
+        
         request.setAttribute("a",a);
         request.setAttribute("b",b);
-        //String opc = "+";
-        String opc = request.getParameter("opc");//opción suma
-        //System.out.println(opc);
+  
         switch(opc){
             case "suma":
                  request.setAttribute("mensaje", "Opreación suma");
